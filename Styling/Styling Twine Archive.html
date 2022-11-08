@@ -1,0 +1,465 @@
+<tw-storydata name="Quack of Duckness" startnode="1" creator="Twine" creator-version="2.5.1" format="Harlowe" format-version="3.3.3" ifid="33F6E26B-7ACB-4A44-8212-4DF5E247AFCE" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Start" tags="" position="828,597" size="100,100">#Quack of Duckness
+*A (link-rerun:&quot;parody game&quot;)[(open-url:&quot;http://www.firthworks.com/roger/cloak/&quot;)].*
+
+You are the most important duck in all of the realm of Duckness: Quack the First! You must explore your domain to uncover the Secret Beneath the Surface, a curiousity you can&#39;t resist investigating!
+
+
+=&gt;&lt;=
+(button:)[[Begin game-&gt;3]]
+(button:)[[Create custom duck-&gt;2]] ^^(Warning! Advanced players only!)^^
+&lt;==
+
+*Educational feature: For the rest of the story, each passage&#39;s Harlowe source code is displayed below this line. This was accomplished using a &quot;footer&quot; tagged passage. To see how it was coded, [[click here-&gt;7]].*</tw-passagedata><tw-passagedata pid="2" name="Footer" tags="footer" position="1159,612" size="100,100">
+---
+(font:&quot;monospace&quot;)[(v6m-print:(passage:)&#39;s source)]\
+(append:?sidebar)[(icon-fullscreen:)(icon-restart:)]\
+(enchant:?link,(t8n-depart:&quot;dissolve&quot;)+(t8n-time:0.4s))</tw-passagedata><tw-passagedata pid="3" name="2" tags="" position="970,695" size="100,100">Very well! To **create your duck**, you must assign Skill Points to each of your various Personal Attributes! Simply click `[+1]` to assign a point to that skill.
+
+\(set:
+   _SP to 21, _DX to 25, _CN to 19, _FL to 20, _PC to 18, _UF to 20,
+   _points to 15, _rerun to (rerun:?skillBoard))\
+
+|skillBoard&gt;[
+\(set:_plusLink to (cond:_points &gt; 0, (link:&quot;`[+1]`&quot;),(hidden:)), _minusLink to (link:&quot;`[-1]`&quot;))\
+|=
+Swiftness:
+Ducksterity:
+Constitution:
+Flight:
+Perceptiveness:
+Unflappability:
+=|
+_SP _plusLink[(set:_SP to it + 1, _points to it - 1)_rerun] (if:_SP &gt; 0)[_minusLink[(set:_SP to it - 1, _points to it + 1)_rerun]]
+_DX _plusLink[(set:_DX to it + 1, _points to it - 1)_rerun] (if:_DX &gt; 0)[_minusLink[(set:_DX to it - 1, _points to it + 1)_rerun]]
+_CN _plusLink[(set:_CN to it + 1, _points to it - 1)_rerun] (if:_CN &gt; 0)[_minusLink[(set:_CN to it - 1, _points to it + 1)_rerun]]
+_FL _plusLink[(set: _FL to it + 1, _points to it - 1)_rerun] (if:_FL &gt; 0)[_minusLink[(set:_FL to it - 1, _points to it + 1)_rerun]]
+_PC _plusLink[(set: _PC to it + 1, _points to it - 1)_rerun] (if:_PC &gt; 0)[_minusLink[(set:_PC to it - 1, _points to it + 1)_rerun]]
+_UF _plusLink[(set: _UF to it + 1, _points to it - 1)_rerun] (if:_UF &gt; 0)[_minusLink[(set:_UF to it - 1, _points to it + 1)_rerun]]
+|==|
+
+Available points: (t8n:&#39;pulse&#39;)+(t8n-time:0.4s)+(text-colour:(cond:_points &gt; 3, white, _points &gt; 0, yellow,red))[&#39;&#39;_points&#39;&#39;]]
+ * (link-rerun:&quot;I want more points&quot;)[{
+  (t8n:&quot;zoom&quot;)+(t8n-time:0.4s)(dialog:&quot;You want more points? Sure! Have a bunch more. Attributes don&#39;t do anything in this game, so who cares?&quot;,&quot;Thanks&quot;)
+  (set:_points to it + (random:4,12))
+  _rerun
+}]
+ * [[I&#39;m ready to go!-&gt;3]]</tw-passagedata><tw-passagedata pid="4" name="3" tags="" position="876,857" size="100,100">####Shore
+(set:$moulted to false)\
+Hurrying through the grass as the beautiful summer rain comes to a stop, you waddle to the edge of the [[4&lt;-pond]]. It&#39;s surprising there aren&#39;t more ducks around, but then, that&#39;s all the more room for a duck of your greatness to explore unheeded.</tw-passagedata><tw-passagedata pid="5" name="4" tags="" position="1105,768" size="100,100">####Pond
+(if:visits is 1)[Pausing only to shake the raindrops from your |A&gt;[coat], you leap off a rock onto the surface vigorously.
+]
+You glide regally around a spacious pond, the heart of Duckness, the ripples of your wake glittering behind you like a peacock&#39;s tail. The [[6&lt;-depths of the pond]] are but a simple dive away, ready to be explored. The [[5&lt;-shallows]] lie to the west.
+
+\(click-append:?A)+(t8n:&#39;dissolve&#39;)[ //(a handsome black coating of plumage that has sustained you through winter and spring, that seems almost to suck the sun&#39;s heat and light out of the air)//]</tw-passagedata><tw-passagedata pid="6" name="5" tags="" position="1014,902" size="100,100">####Shallows
+$moulted
+[This corner of the pond is littered with three of your gorgeous feathers, lightening the weight and heat of your coat, and beautifying the surroundings.
+]\
+(else:)
+[The water is so low in this corner of the pond that your paddling feet can reach the soft bed, letting you stand comfortably.
+
+ * (link-reveal:&quot;&#39;&#39;Moult&#39;&#39;&quot;,(t8n:&quot;dissolve&quot;))[
+
+&quot;Moult&quot;? You can&#39;t just will your feathers off your body! How do you suppose you&#39;ll do that? Shaking them off your hindquarters? Flapping wildly and making a mess of yourself? Really now, a duck of your standing has better–
+
+Oh. Three of your feathers just fell out by themselves. Well, that&#39;s good enough. (set:$moulted to true)
+]]\
+ * [[Return to the pond-&gt;4]]
+</tw-passagedata><tw-passagedata pid="7" name="6" tags="" position="1212,907" size="100,100">####Depths
+You deftly raise your tail, and plunge your head into the realm below.
+
+Hark! What is that before your eyes!? There, poking from the silt! It can only be *the Secret Beneath the Surface*! Its true identity is finally revealed...
+
+**A clump of waterweed!**
+
+You eat heartily of it, as only you deserve.
+
+$moulted[
+##GOOD ENDING
+
+Written by Leon Arnott (2020-08-22).
+A parody of &quot;Cloak of Darkness&quot; by Roger Firth.
+](else:)[
+##BAD ENDING
+
+What? //Bad?// Yes, for you see, nothing bad can truly happen to the great Quack of Duckness! Thus, to such a blessed bird, Bad Endings and Good Endings are the same!]</tw-passagedata><tw-passagedata pid="8" name="7" tags="" position="728,723" size="100,100">This footer performs three tasks, in order:
+1. Display the source code of each passage beneath it, verbatim.
+2. Add the &quot;fullscreen&quot; and &quot;restart&quot; icons to the sidebar.
+3. Change the departing transition of passage links to &quot;dissolve&quot; with a time of 0.4s.
+
+(font:&quot;monospace&quot;)[(v6m-print:(passage:&quot;Footer&quot;)&#39;s source))]
+
+* (link-undo:&quot;Go back&quot;)
+</tw-passagedata></tw-storydata>
+
+<tw-storydata name="Styling with Twine" startnode="1" creator="Twine" creator-version="2.5.1" format="Harlowe" format-version="3.3.3" ifid="DD73C591-8D36-4E5B-A79B-21443E84C306" options="" tags="" zoom="0.6" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">@import url(https://fonts.googleapis.com/css?family=Lobster);
+@import url(https://elliottrodel.github.io/Twine/fonts/OldLondon.css);
+@import url('https://fonts.googleapis.com/css2?family=Francois+One');
+
+/*tw-passage
+{
+  font-family: "Georgia Serif";
+}*/
+
+tw-icon[alt="Undo"], tw-icon[alt="Redo"] {
+    display: none;
+}
+
+#audio-controls
+{
+  display: none;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript">/**
+ * Harlowe Audio Library (HAL), by Chapel, v2.3.0
+ * for Harlowe 2.1.0 and higher
+ * Released under the Unlicense, and dedicated to the public domain.
+**/
+;!function(e){(jQuery.browser=jQuery.browser||{}).mobile=/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine|fennec|hiptop|iemobile|ip(hone|od)|iris|kindle|lge |maemo|midp|mmp|mobile.+firefox|netfront|opera m(ob|in)i|palm( os)?|phone|p(ixi|re)\/|plucker|pocket|psp|series(4|6)0|symbian|treo|up\.(browser|link)|vodafone|wap|windows ce|xda|xiino/i.test(e)||/1207|6310|6590|3gso|4thp|50[1-6]i|770s|802s|a wa|abac|ac(er|oo|s\-)|ai(ko|rn)|al(av|ca|co)|amoi|an(ex|ny|yw)|aptu|ar(ch|go)|as(te|us)|attw|au(di|\-m|r |s )|avan|be(ck|ll|nq)|bi(lb|rd)|bl(ac|az)|br(e|v)w|bumb|bw\-(n|u)|c55\/|capi|ccwa|cdm\-|cell|chtm|cldc|cmd\-|co(mp|nd)|craw|da(it|ll|ng)|dbte|dc\-s|devi|dica|dmob|do(c|p)o|ds(12|\-d)|el(49|ai)|em(l2|ul)|er(ic|k0)|esl8|ez([4-7]0|os|wa|ze)|fetc|fly(\-|_)|g1 u|g560|gene|gf\-5|g\-mo|go(\.w|od)|gr(ad|un)|haie|hcit|hd\-(m|p|t)|hei\-|hi(pt|ta)|hp( i|ip)|hs\-c|ht(c(\-| |_|a|g|p|s|t)|tp)|hu(aw|tc)|i\-(20|go|ma)|i230|iac( |\-|\/)|ibro|idea|ig01|ikom|im1k|inno|ipaq|iris|ja(t|v)a|jbro|jemu|jigs|kddi|keji|kgt( |\/)|klon|kpt |kwc\-|kyo(c|k)|le(no|xi)|lg( g|\/(k|l|u)|50|54|\-[a-w])|libw|lynx|m1\-w|m3ga|m50\/|ma(te|ui|xo)|mc(01|21|ca)|m\-cr|me(rc|ri)|mi(o8|oa|ts)|mmef|mo(01|02|bi|de|do|t(\-| |o|v)|zz)|mt(50|p1|v )|mwbp|mywa|n10[0-2]|n20[2-3]|n30(0|2)|n50(0|2|5)|n7(0(0|1)|10)|ne((c|m)\-|on|tf|wf|wg|wt)|nok(6|i)|nzph|o2im|op(ti|wv)|oran|owg1|p800|pan(a|d|t)|pdxg|pg(13|\-([1-8]|c))|phil|pire|pl(ay|uc)|pn\-2|po(ck|rt|se)|prox|psio|pt\-g|qa\-a|qc(07|12|21|32|60|\-[2-7]|i\-)|qtek|r380|r600|raks|rim9|ro(ve|zo)|s55\/|sa(ge|ma|mm|ms|ny|va)|sc(01|h\-|oo|p\-)|sdk\/|se(c(\-|0|1)|47|mc|nd|ri)|sgh\-|shar|sie(\-|m)|sk\-0|sl(45|id)|sm(al|ar|b3|it|t5)|so(ft|ny)|sp(01|h\-|v\-|v )|sy(01|mb)|t2(18|50)|t6(00|10|18)|ta(gt|lk)|tcl\-|tdg\-|tel(i|m)|tim\-|t\-mo|to(pl|sh)|ts(70|m\-|m3|m5)|tx\-9|up(\.b|g1|si)|utst|v400|v750|veri|vi(rg|te)|vk(40|5[0-3]|\-v)|vm40|voda|vulc|vx(52|53|60|61|70|80|81|83|85|98)|w3c(\-| )|webc|whit|wi(g |nc|nw)|wmlb|wonu|x700|yas\-|your|zeto|zte\-/i.test(e.substr(0,4))}(navigator.userAgent||navigator.vendor||window.opera),function(){"use strict";window.Fast={filter:function(e,t){for(var o=e.length,n=[],a=0;a<o;a++)t(e[a],a,e)&&n.push(e[a]);return n},forEach:function(e,t){for(var o=e.length,n=0;n<o;n++)t(e[n],n,e)},map:function(e,t){for(var o=e.length,n=new Array(o),a=0;a<o;a++)n[a]=t(e[a],a,e);return n},find:function(e,t){for(var o=e.length,n=0;n<o;n++)if(t(e[n],n,e))return e[n]},findIndex:function(e,t){for(var o=e.length,n=0;n<o;n++)if(t(e[n],n,e))return n;return-1},some:function(e,t){for(var o=e.length,n=0;n<o;n++)if(t(e[n],n,e))return!0;return!1}}}(),window.Chapel=window.Chapel||{},window.Chapel.options={preload:!0,loadDelay:0,muteOnBlur:!0,startingVol:.5,persistPrefs:!0,globalA:!0,showControls:!0,sidebarStartClosed:!0,volumeDisplay:!1,trackLoadLimit:500,totalLoadLimit:8e3,debug:!1},window.Chapel.debug=function(){Chapel.options.debug&&console.log.apply(null,arguments)},function(){"use strict";var n=$("tw-storydata"),o=/(.+?):(.+)/,t=/[\r\n]+/,a=/^["']/,r=/["']$/;function e(e){return Fast.map(Fast.filter(e.split(t),function(e){return e&&e.trim()&&e.includes(":")}),function(e){return e.trim()})}function i(e){return e.trim().replace(a,"").replace(r,"").trim()}function s(e){var t=e.match(o);return t instanceof Array?{key:i(t[1]),value:i(t[2])}:e}var u,l,c,p=n.find('tw-passagedata[name="hal.tracks"]'),d=null,p=(p.length&&(p=e(p.text()),u=[],l=[],Fast.forEach(p,function(e){var e=s(e);"string"==typeof e&&l.push(e),u.push([e.key,(e=e.value,Fast.map(e.split(","),i))])}),l.length&&console.error("Some track definitions could not be parsed:\n"+l.join("\n")+"\nPlease check these definitions and try again."),d=new Map(u)),n.find('tw-passagedata[name="hal.config"]')),m=null;function f(e){var t=n.attr("format-version");if(e)return t;var e=t.split("."),t=e[0],o=e[1],e=e[2],t=Number(t),o=Number(o);return[t=(t=Number.isNaN(t)?3:t)<1?3:t,o=Number.isNaN(o)?3:o,e=Number.isNaN(e)?0:e]}function h(){var e=f();return!(3<=e[0]&&3<=e[1])}function g(t){return function(){var e=[].slice.call(arguments).slice(1),e=t.apply(null,e);return"string"==typeof e||"boolean"==typeof e||"number"==typeof e?e:""}}p.length&&(p=e(p.text()),c={},Fast.forEach(Fast.map(p,function(e){return s(e)}),function(e){c[e.key]=e.value}),m=c),m&&Fast.forEach(Object.keys(m),function(e){var t=e,o=c[e],e=typeof Chapel.options[e];"boolean"==e?"true"===o?Chapel.options[t]=!0:"false"===o&&(Chapel.options[t]=!1):"number"==e?(o=Number(o),Number.isNaN(o)||(Chapel.options[t]=o)):"string"==e&&o&&(Chapel.options[t]=o)});var y=require("macros");if(window.Chapel=window.Chapel||{},window.Chapel.Macros={add:function(o){o&&"object"==typeof o&&Fast.forEach(Object.keys(o),function(e){var t;t=o[e=e],h()?y.add(e,g(t),y.TypeSignature.zeroOrMore(y.TypeSignature.Any)):y.add(e,"Any",g(t),y.TypeSignature.zeroOrMore(y.TypeSignature.Any))})}},window.Chapel.Get=Object.freeze({version:f(),isHarlowe3OrLater:3<=f()[0],storyTitle:n.attr("name"),IFID:n.attr("ifid"),useOldMacroAPI:h(),fromPassage:d}),Chapel.debug("Harlowe Version -> ",Chapel.Get.version.join(".")),Chapel.debug("Harlowe Major Version -> ",Chapel.Get.version[0]),Chapel.debug("Story Title -> ",Chapel.Get.storyTitle),Chapel.debug("Story IFID -> ",Chapel.Get.IFID),Chapel.Get.version[0]<2)throw new Error("The Harlowe Audio Library is only designed to work with Harlowe 2 and 3; you appear to be using Harlowe 1 or an otherwise invalid story format.","get.js -> initialization",176);Chapel.options.storagekey="%%hal-"+Chapel.Get.IFID+"-{"+Chapel.Get.storyTitle+"}",Chapel.debug("Storage Key -> ",Chapel.options.storagekey)}(),function(){"use strict";var t=Chapel.options,e=function(e,t){if(window.localStorage)try{e=""+e,"string"!=typeof t&&(t=JSON.stringify(t)),window.localStorage.setItem(e,t)}catch(e){console.error(e)}},o=function(e){if(window.localStorage)try{return e=""+e,window.localStorage.getItem(e)}catch(e){console.error(e)}},n=function(e){if(window.localStorage)try{e=""+e,window.localStorage.removeItem(e)}catch(e){console.error(e)}},a={loaded:[],classes:{},master:{volume:t.startingVol,mute:!1},groups:{playing:[],looping:[],custom:{}},mute:function(e){a.master.mute=!!e,$(document).trigger({type:":master-mute",mute:!!e})},isMuted:function(){return!!a.master.mute},volume:function(e){e=Number(e),Number.isNaN(e)||(1<e?e=1:e<0&&(e=0),a.master.volume=e),$(document).trigger({type:":master-volume",volume:e})},getVolume:function(){return a.master.volume},stopAll:function(){a.classes.Track&&Fast.forEach(a.classes.Track.list,function(e){e.stop()})},audioPlaying:function(){return!!a.groups.playing.length},savePrefs:function(){e(t.storagekey,a.master)},loadPrefs:function(){var e=o(t.storagekey);e&&"object"==typeof e&&e.hasOwnProperty("volume")&&"number"==typeof e.volume&&e.hasOwnProperty("mute")&&"boolean"==typeof e.volume&&(delete a.master,a.master=e)},clearPrefs:function(){n(t.storagekey)}},r={track:[":available",":loaded",":play",":stop",":mute",":volume"],master:[":master-mute",":master-volume"]};var i=r.track.concat(r.master);function s(e,t){if(!e||"string"!=typeof e||!e.trim())return null;e=Fast.filter(Fast.map(e.split(" "),function(e){return(e=":"!==(e=e.split(".")[0])[0]?":"+e:e)+".userland"}),function(e){return(t?i:r.track).includes(e)}).join(" ");return e&&e.trim()?e:null}a.data={parseEvent:s,bail:function(e){throw new Error(e,"audio.js -> bail()",140)}},a.on=function(e,t){t&&"function"==typeof t?(e=s(e,!0))&&$(document).on(e,t):console.error("Chapel.Audio.on() -> invalid callback")},a.one=function(e,t){t&&"function"==typeof t?(e=s(e,!0))&&$(document).one(e,t):console.error("Chapel.Audio.one() -> invalid callback")},a.off=function(e){(e=s(e,!0))&&$(document).off(e)},t.persistPrefs&&($(document).on(":master-mute",a.savePrefs),$(document).on(":master-volume",a.savePrefs)),$(document).on(":play",function(e){e.track.addToGroup("playing")}),$(document).on(":stop",function(e){e.track.removeFromGroup("playing")}),t.muteOnBlur&&$(window).on("blur",function(){a.isMuted()||(a.mute(!0),$(window).one("focus",function(){a.mute(!1)}))}),a.parseEvent=s,window.Chapel=window.Chapel||{},window.Chapel.Audio=a}(),function(){"use strict";var a=Chapel.Audio,o=a.data.pareEvent,r=a.data.bail,i=Chapel.options,t=$(document.createElement("div")).attr("id","audio-container").css("display","none").appendTo(document.body),s={aac:"audio/aac",caf:"audio/x-caf","x-caf":"audio/x-caf",mp3:'audio/mpeg; codecs="mp3"',mpeg:'audio/mpeg; codecs="mp3"',m4a:"audio/mp4",mp4:"audio/mp4","x-m4a":"audio/mp4","x-mp4":"audio/mp4",oga:"audio/ogg",ogg:"audio/ogg",opus:'audio/ogg; codecs="opus"',wav:"audio/wav",wave:"audio/wav",weba:"audio/webm",webm:"audio/webm"};function u(e,t,o){this instanceof u||r("Track: called without `new` operator"),e||r("Track: no id specified"),"string"!=typeof e&&r("Track: track id is not a string"),t&&(!Array.isArray(t)||t.length)||r("Track: no sources specified"),o?t=[].slice.call(arguments).slice(1):"string"==typeof t&&(t=[t]);var n=$(document.createElement("audio"));Fast.forEach(t,function(e){$(document.createElement("source")).attr({src:e,type:(e=(e=(e=(e=(e=e).split("."))[e.length-1]).includes("?")?e.split("?")[0]:e).toLowerCase().trim(),Object.keys(s).includes(e)||r('Track: unsupported file type "'+e+'"'),s[e])}).appendTo(n)}),n.attr({"data-track":"id","data-volume":1,"data-mute":!1}).one("canplaythrough.hal",function(){a.loaded.push(e)}),i.preload&&n.attr("preload","auto"),n[0].volume=+a.master.volume,this.id=e,this.$el=n,this.unwrap=n[0],this.sources=t}Object.assign(u,{list:[],is:function(e){return e instanceof u},has:function(t){return Fast.some(u.list,function(e){return e.id===t})},emit:function(e,t){$(document).trigger({type:e,track:t}),t.emit(e)},add:function(e,t,o){var n=new u(e,t=o?[].slice.call(arguments).slice(1):t);return u.list.push(n),n.$el.on("canplay",function(){u.emit(":available",n)}),n.$el.on("canplaythrough",function(){u.emit(":loaded",n)}),n.attach(),n},renew:function(){Fast.forEach(u.list,function(e){e.mute(e.isMuted()),e.volume(e.getVolume())})},getIdx:function(t){return Fast.findIndex(u.list,function(e){return e.id===t})},get:function(t){var e=Fast.find(u.list,function(e){return e.id===t});if(e)return e;throw new ReferenceError('There is no track with the id "'+t+'". Please check your spelling and capitalization.',"track.js -> Track.get()",155)},removeFromDOM:function(e){(e="string"==typeof e?u.get(e):e)&&u.is(e)?e.unattach():t.remove()},_runOnMultiple:function(e,t,o){e instanceof Array&&u.prototype.hasOwnProperty(t)&&Fast.forEach(e,function(e){(e=u.is(e)?e:u.get(e)||null)&&e[t].apply(e,o&&o instanceof Array?o:[])})}}),Object.assign(u.prototype,{constructor:u,emit:function(e){this.$el.trigger({type:e,track:this})},clone:function(){return new u(this.id,this.sources)},isAttached:function(){return $.contains(t[0],this.unwrap)},attach:function(){return this.isAttached()||this.$el.appendTo(t),this},unattach:function(){return this.isAttached()&&this.$el.remove(),this},isPlaying:function(){return!this.unwrap.paused},play:function(){var e=this;return this.unwrap.play(),u.emit(":play",this),this.$el.on("ended",function(){e.unwrap.loop||(e.unwrap.currentTime=0,u.emit(":stop",e))}),this},playWhenPossible:function(){var t=this;return this.unwrap.play().then(function(){u.emit(":play",t),t.$el.on("ended",function(){t.unwrap.loop||(t.unwrap.currentTime=0,u.emit(":stop",t))})},function(e){$(document).one("click mousedown keydown touchstart",function(){t.play()})}).catch(function(e){console.error(e)}),this},forcePlay:function(){var e=this,t=$(document.createElement("a")).css("display","none").appendTo(document.body).on("click",function(){e.play()});setTimeout(function(){t.trigger("click")},safeAudioStart)},pause:function(){return this.unwrap.pause(),u.emit(":pause",this),this},stop:function(){return this.unwrap.pause(),this.unwrap.currentTime=0,u.emit(":stop",this),this},mute:function(e){return this.$el.attr("data-mute",e=!!e),a.master.mute?this.unwrap.muted=!0:this.unwrap.muted=e,u.emit(":mute",this),this},isMuted:function(){var e=this.$el.attr("data-mute");return"boolean"==typeof e?e:"false"!==e},toggleMute:function(){return this.mute(!this.isMuted()),this},volume:function(e){return e=Number(e),Number.isNaN(e)||(1<e?e=1:e<0&&(e=0),this.$el.attr("data-volume",e),this.unwrap.volume=e*a.master.volume),u.emit(":volume",this),this},getVolume:function(){return Number(this.$el.attr("data-volume"))},addToGroup:function(e,t){var o=this,t=(t?a.groups.custom:a.groups)[e];return Fast.some(t,function(e){return o.id===e.id})||t.push(this),this},removeFromGroup:function(e,t){var o=this,t=(t?a.groups.custom:a.groups)[e],e=Fast.findIndex(t,function(e){return e.id&&e.id===o.id});return t.splice(e,1),this},loop:function(e){return this.unwrap.loop=!!e,this.unwrap.loop?this.addToGroup("looping"):this.removeFromGroup("looping"),this},isLooping:function(){return!!this.unwrap.loop},toggleLoop:function(){return this.loop(!this.isLooping()),this},seek:function(e){return e<0?e=this.unwrap.duration-e:e>this.unwrap.duration&&(e=this.unwrap.duration),this.unwrap.currentTime=e,this},fadeIn:function(e){var t=this,o=(e=e||1,this.getVolume());return this.volume(0),this.play(),this.$el.animate({volume:o*a.master.volume},1e3*e,function(){t.volume(o),u.emit(":volume",t),u.emit(":fade",t)}),this},fadeOut:function(e){e=e||1;var t=this,o=this.getVolume();return this.$el.animate({volume:0},1e3*e,function(){t.stop(),t.volume(o),u.emit(":volume",t),u.emit(":fade",t)}),this},fadeTo:function(e,t){var o=this;if(e=e||1,t=Number(t),!Number.isNaN(t))return 1<t?t=1:t<0&&(t=0),this.$el.animate({volume:t*a.master.volume},1e3*e,function(){o.volume(t),u.emit(":volume",o),u.emit(":fade",o)}),this;alert("ivalid volume level")},delay:function(e,t){var o=this;"function"==typeof t&&(e=Number(e),(Number.isNaN(e)||e<0)&&(e=0),setTimeout(function(){t.call(o,o,e)},e))},on:function(e,t){if(!t||"function"!=typeof t)return console.error("<track>.on() -> invalid callback"),this;(e=o(e))&&this.$el.on(e,t)},one:function(e,t){if(!t||"function"!=typeof t)return console.error("<track>.one() -> invalid callback"),this;(e=o(e))&&this.$el.one(e,t)},off:function(e){(e=o(e))&&this.$el.off(e)}}),a.classes.Track=u,a.newTrack=function(){try{return u.add.apply(null,arguments)}catch(e){console.error(e.message),alert("Error in A.newTrack() -> see the console for more information.")}},a.track=function(e){try{return u.get(e)}catch(e){console.error(e.message),alert("Error in A.track() -> see the console for more information.")}},$(document).on(":master-mute",u.renew),$(document).on(":master-volume",u.renew)}(),function(){"use strict";var n=Chapel.Audio,a=n.classes.Track,o=(n.data._extend,/(play)?list:(.+)/i);n.createGroup=function(e,t,o){o=o?[].slice.call(arguments).slice(1):t;t=e,(e=o)&&Array.isArray(e)||(e=[]),n.groups.custom[t]=Fast.map(e,function(e){return a.get(e)})},n.group=function(e){if(!(this instanceof n.group))return new n.group(e);if(Object.keys(n.groups.custom).includes(e))this.members=n.groups.custom[e];else{if(!(n.groups[e]&&n.groups[e]instanceof Array))throw new ReferenceError('There is no group with the id "'+id+'". Please check your spelling and capitalization.',"group.js -> A.group()",29);this.members=n.groups[e]}var t;o.test(e)&&(t=e.match(o)[2])&&t.trim()&&(this.members=n.playlist(t).tracks),Array.isArray(this.members)||(this.members=[],console.error('Could not find members for track group "'+e+'"!'))},Object.assign(n.group,{is:function(e){return this instanceof n.group},_runOnAll:function(e,t,o,n){null!=n?o=[].slice.call(arguments).slice(2):o instanceof Array||(o=[o]);n=[e.members,t,o];a._runOnMultiple.apply(null,n)}}),Object.assign(n.group.prototype,{constructor:n.group,_run:function(){n.group._runOnAll.apply(null,[this].concat([].slice.call(arguments)))},play:function(){return this._run("play"),this},pause:function(){return this._run("pause"),this},stop:function(){return this._run("stop"),this},mute:function(e){return this._run("mute",e),this},volume:function(e){return this._run("volume",e),this},loop:function(e){return this._run("loop",e),this}})}(),function(){"use strict";var e=Chapel.Audio,a=e.classes.Track;e.data._extend;function n(e,t){if(!(this instanceof n))return new n(e,t);this.id=e,this.tracks=t.map(function(e){return a.get(e)}),this.looping=!1,this.current="",this.playing=!1}Object.assign(n,{list:{},is:function(e){return e instanceof n},add:function(e,t,o){return o&&(t=[].slice.call(arguments).slice(1)),n.list[e]=new n(e,t),n.list[e]},_runOnAll:function(e,t,o,n){null!=n?o=[].slice.call(arguments).slice(2):o instanceof Array||(o=[o]);n=[e.tracks,t,o];a._runOnMultiple.apply(null,n)}}),Object.assign(n.prototype,{constructor:n,clone:function(){return new n(this.id,this.tracks.map(function(e){return e.id}))},_run:function(){n._runOnAll.apply(null,[this].concat([].slice.call(arguments)))},volume:function(e){return this._run("volume",e),this},mute:function(e){return this._run("mute",e),this},shuffle:function(){for(var e,t,o=this.tracks,n=o.length-1;0<n;n--)e=Math.floor(Math.random()*(n+1)),t=o[n],o[n]=o[e],o[e]=t;return this.tracks=o,this},random:function(){return this.tracks[Math.floor(Math.random()*this.tracks.length)]},isPlaying:function(){return this.playing},nowPlaying:function(){return a.get(this.current)},play:function(e){var t=this;if((e=e||(t.current?Fast.findIndex(t.tracks,function(e){return e.id===t.current}):0))>=t.tracks.length&&t.looping)e=0;else if(e>=t.tracks.length)return t.current="",void(t.playing=!1);var o=t.tracks[e],n=o.isLooping();return o.loop(!1),o.play(),t.playing=!0,setTimeout(function(){o.isPlaying()||(t.playing=!1)},20),t.current=o.id,o.$el.one("ended.playlist",function(){e++,o.loop(n),t.play(e)}),t},loop:function(e){return this.looping=!!e,this},isLooping:function(){return this.looping},stop:function(){var e;return this.current&&this.isPlaying()?(e=this.nowPlaying())&&(e.stop(),e.$el.off(".playlist")):this._run("stop"),this.current="",this.playing=!1,this},pause:function(){var e;return this.current&&this.isPlaying()&&((e=this.nowPlaying())&&e.pause()),this.playing=!1,this}}),e.classes.Playlist=n,e.createPlaylist=function(){try{n.add.apply(null,arguments)}catch(e){console.error(e.message),alert("Error in A.createPlaylist() -> see the console for more information.")}},e.playlist=function(e){try{var t=n.list[e]||null;if(t)return t;throw new ReferenceError('There is no playlist with the id "'+e+'". Please check your spelling and capitalization.',"list.js -> A.playlist()",171)}catch(e){console.error(e.message),alert("Error in A.createPlaylist() -> see the console for more information.")}}}(),function(){"use strict";var t=Chapel.Audio,o=t.classes.Track,n=t.classes.Playlist;function a(t,o){if("object"!=typeof o)throw new TypeError("Invalid extension.","extensions.js -> _extend()",8);Fast.forEach(Object.keys(o),function(e){if(void 0!==t[e])throw new Error('Invalid extension: cannot clobber existing property "'+e+'".',"extensions.js -> _extend()",8);t[e]=o[e]})}t.extend=function(e){a(Audio,e)},o.extend=function(e){a(o,e)},o.extendPrototype=function(e){a(o.prototype,e)},t.extendTrack=o.extend,t.extendTrackProto=o.extendPrototype,t.group.extend=function(e){a(t.group,e)},t.group.extendPrototype=function(e){a(t.group.prototype,e)},t.extendGroup=t.group.extend,t.extendGroupProto=t.group.extendPrototype,n.extend=function(e){a(n,e)},n.extendPrototype=function(e){a(n.prototype,e)},t.extendPlaylist=n.extend,t.extendPlaylistProto=n.extendPrototype}(),function(){"use strict";var e,t,o,n,a,r,i,s=Chapel.options;s.showControls&&(e=$(document.createElement("div")).attr("id","story-menu").css("display","none"),t=$(document.createElement("span")).attr("id","vol-title").append("Volume"),s.volumeDisplay||t.css("display","none"),o=$(document.createElement("input")).attr({id:"audio-volume",type:"range",min:1,max:99,step:1,title:"Volume"}).addClass("hal"),(a=Math.trunc(100*window.Chapel.Audio.master.volume))<0?a=0:100<a&&(a=100),o.attr("value",a),n=function(e){void 0===e&&(e=o.val()),t.empty().append("Volume "+e)},o.on("input",function(){window.Chapel.Audio.volume($(this).val()/100),n($(this).val())}),a=$(document.createElement("tw-link")).attr({id:"audio-mute",title:"Mute"}).append("Mute <span></span>").on("click",function(e){e.preventDefault(),$(this).toggleClass("muted"),Chapel.Audio.mute(!Chapel.Audio.isMuted())}),Chapel.Audio.isMuted()&&a.addClass("muted"),r=$(document.createElement("tw-link")).attr("id","audio-panel-toggle").on("click",function(e){e.preventDefault(),i.toggleClass("closed")}),i=$(document.createElement("div")).attr("id","audio-controls").append(e,t,o,a,r).appendTo(document.body),s.sidebarStartClosed&&i.addClass("closed"),window.Chapel=window.Chapel||{},window.Chapel.Audio=window.Chapel.Audio||{},window.Chapel.Audio.controls={$panel:i,$volume:o,$mute:a,$user:e,close:function(){i.addClass("closed")},open:function(){i.removeClass("closed")},toggle:function(){i.toggleClass("closed")},hide:function(){i.css("display","none")},show:function(){i.css("display","block")},updateVolume:n})}(),function(){"use strict";var s=Chapel.options,t=State,e=$(document.createElement("div")).attr("id","audio-overlay").css("display","none").appendTo(document.body);function o(){e.css("display","block").append('<div class="lds-ring"><div></div><div></div><div></div><div></div></div>')}function u(){e.fadeOut(function(){e.empty()})}window.Chapel=window.Chapel||{},window.Chapel.Audio=window.Chapel.Audio||{},window.Chapel.Audio.loadScreen={show:o,dismiss:u,kill:function(){$("#audio-overlay").remove()}},window.Chapel.Audio.$overlay=e,window.Chapel.Audio.preload=function(){var a,e,r,i;Chapel.debug("This is a mobile browser -> ",$.browser.mobile),t.pastLength||t.futureLength||$.browser.mobile||($(document).ready(function(){o()}),a=100+s.loadDelay,e=Chapel.Audio.classes.Track.list,r=Chapel.Audio.loaded,e.length?(i=Fast.map(e,function(e){return e.id}),0<s.totalLoadLimit&&setTimeout(function(){u()},s.totalLoadLimit),function e(){var t,o,n;i.length?(t=i.shift(),r.includes(t)?e():(o=Chapel.Audio.classes.Track.get(t)).unwrap.readyState<2?(n=!1,o.$el.one("canplaythrough.hal",function(){e(),n=!0}),setTimeout(function(){n||(o.$el.off("canplaythrough.hal"),e())},s.trackLoadLimit)):(r.includes(t)||r.push(t),e())):setTimeout(u,a)}()):setTimeout(u,a))}}(),function(){"use strict";var e,t,o=Chapel.options.storagekey+"_hal_restart_",n=(Chapel.debug("HAL Session Key -> ",o),window.sessionStorage?(Chapel.debug("Session Storage Available"),e=function(e,t){window.sessionStorage.setItem(o+e,t)},t=function(e){return window.sessionStorage.getItem(o+e)}):(Chapel.debug("Session Storage Unavailable"),e=function(){},t=function(){},console.warn("Session storage is unavailable...")),{save:e,load:t});window.Chapel.Audio.state={_store:n,saveTracks:function(){var e;try{e=Fast.map(Chapel.Audio.classes.Track.list,function(e){return{id:e.id,sources:e.sources}}),Chapel.debug("Session Saved (Tracks) -> ",e),e=JSON.stringify(e),n.save("tracks",e)}catch(e){console.error(e.message)}},loadTracks:function(){var e;try{e=(e=n.load("tracks"))&&JSON.parse(e),Array.isArray(e)&&e.length&&(Chapel.debug("Session Loaded (Tracks) -> ",e),Fast.forEach(e,function(e){e.id&&e.sources&&!Chapel.Audio.classes.Track.has(e.id)?Chapel.Audio.newTrack.apply(null,[e.id].concat(e.sources)):Chapel.debug("Track reloading skipped.")}))}catch(e){console.error(e.message)}},savePlaylists:function(){try{var o=Chapel.Audio.classes.Playlist.list,e=Fast.map(Object.keys(o),function(e){var t={};return t.tracks=Fast.map(o[e].tracks,function(e){return e.id}),t.id=o[e].id,t});Chapel.debug("Session Saved (Playlists) -> ",e),e=JSON.stringify(e),n.save("playlists",e)}catch(e){console.error(e.message)}},loadPlaylists:function(){var e;try{(e=(e=n.load("playlists"))&&JSON.parse(e))&&Array.isArray(e)&&e.length&&(Chapel.debug("Session Loaded (Playlists) -> ",e),Fast.forEach(e,function(e){e.id&&e.tracks&&Chapel.Audio.createPlaylist(e.id,e.tracks)}))}catch(e){console.error(e.message)}},saveGroups:function(){var t;try{t={},Fast.forEach(Object.keys(Chapel.Audio.groups.custom),function(e){t[e]=Fast.map(Chapel.Audio.groups.custom[e],function(e){return"string"==typeof e?e:e.id})}),Chapel.debug("Session Saved (Groups) -> ",t),t=JSON.stringify(t),n.save("groups",t)}catch(e){console.error(e.message)}},loadGroups:function(){var t;try{(t=(t=n.load("groups"))&&JSON.parse(t))&&"object"==typeof t&&(Chapel.debug("Session Loaded (Groups) -> ",t),Fast.forEach(Object.keys(t),function(e){Fast.map(t[e],function(e){return Chapel.Audio.classes.Track.get(e)})}),Chapel.Audio.groups.custom=t)}catch(e){console.error(e.message)}}}}(),function(){"use strict";var e=Chapel.options;e.globalA&&void 0===window.A&&(Chapel.debug("Created global A interface."),window.A=window.Chapel.Audio),Chapel.Get.fromPassage&&(Chapel.debug("Loading tracks from track def special passage -> ",Chapel.Get.fromPassage),Chapel.Get.fromPassage.forEach(function(e,t){Chapel.Audio.newTrack.apply(null,[t].concat(e))})),$(document).on("unload",function(){Chapel.debug("User Prefs Saved"),window.Chapel.Audio.savePrefs()}),Chapel.Audio.classes.Track.renew(),Chapel.Audio.controls&&Chapel.Audio.controls.updateVolume(),Chapel.Get.isHarlowe3OrLater&&($(window).on("unload",function(){Chapel.debug("HAL State Saved"),Chapel.Audio.state.saveTracks(),Chapel.Audio.state.savePlaylists(),Chapel.Audio.state.saveGroups()}),Chapel.debug("HAL State Loaded"),Chapel.Audio.state.loadTracks(),Chapel.Audio.state.loadPlaylists(),Chapel.Audio.state.loadGroups()),e.persistPrefs&&(Chapel.debug("User Prefs Loaded"),Chapel.Audio.loadPrefs())}(),function(){"use strict";var i,s,e,u,t;Chapel.options.showControls&&(i=Engine,s=Chapel.Audio.controls.$user,e=function(){return"none"!==s.css("display")},u=function(){return e()||s.css("display","block"),s},t=function(){return e()&&s.css("display","none"),s},Chapel.Audio.menu={hide:t,show:u,isShown:e,links:{add:function(e,t,o){var n,a;if(!e||"string"!=typeof e)return r="undefined",alert(r),void console.error(r);o||"function"!=typeof t?(t&&"string"==typeof t&&(n=t),o&&"function"==typeof o&&(a=o)):(a=t,n=null);var r=$(document.createElement("tw-link")).append(e).attr({tabindex:"0",name:e.toLowerCase().trim()}).on("click",function(){n&&i.goToPassage(n),a&&a()}).addClass("story-menu").appendTo(s);return u(),r},clear:function(){return s.empty(),t()},hide:function(e){e=e.toLowerCase().trim(),$('tw-link.story-menu[name="'+e+'"]').addClass("hide")},show:function(e){e=e.toLowerCase().trim(),$('tw-link.story-menu[name="'+e+'"]').removeClass("hide")},toggle:function(e){e=e.toLowerCase().trim(),$('tw-link.story-menu[name="'+e+'"]').toggleClass("hide")},remove:function(e){e=e.toLowerCase().trim(),$('tw-link.story-menu[name="'+e+'"]').remove()}}})}(),function(){"use strict";var n=Chapel.Audio;function o(e){return e&&"function"==typeof e}function a(e,t){if(!e||"string"!=typeof e)return null;switch(e=e.toLowerCase().trim()){case"isplaying":e="isPlaying";break;case"playwhenpossible":e="playWhenPossible";break;case"ismuted":e="isAMuted";break;case"togglemute":e="toggleMute";break;case"getvolume":e="getVolume";break;case"islooping":e="isLooping";break;case"toggleloop":e="toggleLoop";break;case"fadein":e="fadeIn";break;case"fadeout":e="fadeOut";break;case"fadeto":e="fadeTo";break;case"stopall":e="stopAll"}if("isPlaying"===e&&"master"===t&&(e="audioPlaying"),"group"===t){if(o(n.group.prototype[e]))return e}else if("master"===t){if(o(n[e]))return e}else if(o(n.classes[t].prototype[e]))return e;throw new ReferenceError('Cannot run the command: "'+e+'" on the API "'+t+'". The command may be invalid, or this may be a bug in HAL.',"macros.js -> getCommand()",10)}window.Chapel.Macros.add({newtrack:function(){var e=[].slice.call(arguments);try{return n.newTrack.apply(null,e)}catch(e){alert("Error in the (newtrack:) macro: "+e.message)}},newplaylist:function(e,t){t=[].slice.call(arguments).slice(1);try{return n.createPlaylist(e,t)}catch(e){alert("Error in the (newplaylist:) macro: "+e.message)}},newgroup:function(e,t){t=[].slice.call(arguments).slice(1);try{return n.createGroup(e,t)}catch(e){alert("Error in the (newgroup:) macro: "+e.message)}},masteraudio:function(e){try{return e=a(e,"master"),n[e].apply(null,[].slice.call(arguments).slice(1))}catch(e){alert("Error in the (masteraudio:) macro: "+e.message)}},track:function(e,t){try{var o=n.track(e);return o[t=a(t,"Track")].apply(o,[].slice.call(arguments).slice(2))}catch(e){alert("Error in the (track:) macro: "+e.message)}},playlist:function(e,t){try{var o=n.playlist(e);return o[t=a(t,"Playlist")].apply(o,[].slice.call(arguments).slice(2))}catch(e){alert("Error in the (playlist:) macro: "+e.message)}},group:function(e,t){try{var o=n.group(e);return o[t=a(t,"group")].apply(o,[].slice.call(arguments).slice(2))}catch(e){alert("Error in the (group:) macro: "+e.message)}}})}();
+/** End of HAL code */</script><tw-tag name="footer" color="red"></tw-tag><tw-tag name="startup" color="red"></tw-tag><tw-passagedata pid="1" name="Index" tags="" position="700,725" size="100,100">&lt;script&gt;
+$nextPage = &quot;Fonts&quot;;
+$previousPage = &quot;Index&quot;;
+&lt;/script&gt;
+
+&lt;h1&gt;Styling our Stories&lt;/h1&gt;
+
+Jump to:
+(link-repeat: &quot;Fonts&quot;)
+[
+(set: $previousPage to &quot;Back&quot;)
+(set: $nextPage to &quot;The Font Macro&quot;)
+(goto: &quot;Fonts&quot;)
+]
+[[Text Styling]]
+[[Images]]
+[[Video]]
+[[Audio]]
+</tw-passagedata><tw-passagedata pid="2" name="Fonts" tags="" position="700,850" size="100,100">&lt;script&gt;
+$nextPage = &quot;The Font Macro&quot;;
+$previousPage = &quot;Back&quot;;
+&lt;/script&gt;
+
+&lt;h2&gt;Fonts&lt;/h2&gt;
+(link-repeat: &quot;Back&quot;)
+[
+(set: $previousPage to &quot;Index&quot;)
+(set: $nextPage to &quot;Fonts&quot;)
+(goto: &quot;Index&quot;)
+]
+
+We can use (font:&#39;Lobster&#39;)[custom fonts] in our stories to enhance the visual appeal of our text.
+
+We do this using the (font:&#39;Consolas&#39;)[ `(font:)`] macro.
+
+(link-repeat: &quot;The Font Macro&quot;)
+[
+(set: $previousPage to &quot;Back&quot;)
+(set: $nextPage to &quot;Google Fonts&quot;)
+(goto: &quot;The Font Macro&quot;)
+]
+</tw-passagedata><tw-passagedata pid="3" name="Text Styling" tags="" position="900,825" size="100,100">&lt;h2&gt;Text Styling&lt;/h2&gt;
+[[Index&lt;-Back]]
+
+Over to you!
+
+Have a look at &lt;a href=&quot;https://twine2.neocities.org/#markup_style&quot;&gt;https://twine2.neocities.org/#markup_style&lt;/a&gt; and &lt;a href=&quot;https://twine2.neocities.org/#macro_text-style&quot;&gt;https://twine2.neocities.org/#macro_text-style&lt;/a&gt; and try using these macros in Twine.
+
+Have a go at your own pace, we will revisit these with some tips afterwards!</tw-passagedata><tw-passagedata pid="4" name="Images" tags="" position="500,825" size="100,100">&lt;script&gt;
+$nextPage = &quot;HTML Tag&quot;;
+$previousPage = &quot;Back&quot;;
+&lt;/script&gt;
+
+&lt;h2&gt;Images&lt;/h2&gt;
+[[Index&lt;-Back]]
+
+We can utilise images to enhance our visual storytelling, to do this we must make use of (link-replace: &quot;HTML&quot;)[HTML - (Hyper Text Markup Language:  describes the structure of the webpage to the browser)] tags.
+
+To add an image to our story we can use the (font: &#39;Consolas&#39;)[`&lt;img&gt;`] tag.
+
+The syntax for the tag is (font: &#39;Consolas&#39;)[`&lt;img src=&quot;urlToImage.png&quot;&gt;`].
+
+It is recommended that you upload the image to your git repository and use the corresponding URL rather than use the URL of an image on another site on the web. This is because existing websites can remove uploaded images, causing your image to not render (this is known as a deadlink).
+
+[[Problems with Images]]
+
+</tw-passagedata><tw-passagedata pid="5" name="Video" tags="" position="500,1200" size="100,100">&lt;h2&gt;Video&lt;/h2&gt;
+[[Inline Styling&lt;-Back]]
+
+Adding a video player is very similar to the way in which we add an image, we can utilise a special HTML tag called (font:&#39;Consolas&#39;)[`&lt;video&gt;`] to tell the browser we want to add video content to our passage.
+
+Below is a video player utilising the &lt;a href=&quot;https://www.w3schools.com/tags/tag_video.asp&quot;&gt;video&lt;/a&gt; tag.
+
+&lt;video controls width=&quot;100%&quot; height=&quot;auto&quot;&gt;
+  &lt;source src=&quot;video-tag-example.mp4&quot; type=&quot;video/mp4&quot;&gt;
+  Video tag is not supported in this browser.
+&lt;/video&gt;</tw-passagedata><tw-passagedata pid="6" name="Audio" tags="" position="625,575" size="100,100">&lt;h2&gt;Audio&lt;/h2&gt;
+[[Index&lt;-Back]]
+
+Adding audio in our Twine stories allows us to transport the user, immersing them more deeply in our narrative.
+
+Typically adding Audio requires a lot of JavaScript, but we&#39;ll be using a (link-replace: &quot;library&quot;)[library - (a usable set of pre-written code that accomplishes a given goal)] to make this easier. The library is called the &#39;Harlowe Audio Library&#39; (HAL) for short.
+
+[[Installing HAL]]</tw-passagedata><tw-passagedata pid="7" name="Arrow Key Controls" tags="footer" position="400,200" size="100,100">&lt;div id=&quot;content&quot;&gt;&lt;/div&gt;
+&lt;script&gt;
+$( &quot;html&quot; ).keydown(function(event) {
+	switch (event.which) {
+        case 37:
+        link = findLink($previousPage)
+        	if(link!=null)
+            {
+               link.click();
+            }
+            break;
+        case 39:
+        link = findLink($nextPage)
+        	if(link!=null)
+            {
+               link.click();
+            }
+            break;
+    }
+});
+
+
+function findLink(linkText) {
+  var aTags = document.getElementsByTagName(&quot;tw-link&quot;);
+  var found;
+
+for (var i = 0; i &lt; aTags.length; i++) {
+  if (aTags[i].textContent == linkText) {
+    found = aTags[i];
+    break;
+  }
+}
+  return found;
+}
+
+&lt;/script&gt;</tw-passagedata><tw-passagedata pid="8" name="The Font Macro" tags="" position="700,975" size="100,100">&lt;script&gt;
+$nextPage = &quot;Custom Font&quot;;
+$previousPage = &quot;Back&quot;;
+&lt;/script&gt;
+
+&lt;h2&gt;Font Macro&lt;/h2&gt;
+(link-repeat: &quot;Back&quot;)
+[
+(set: $previousPage to &quot;Back&quot;)
+(set: $nextPage to &quot;The Font Macro&quot;)
+(goto: &quot;Fonts&quot;)
+]
+
+The font macro allows us to specify a font for a (link-replace: &quot;hook.&quot;)[hook - content in a set of square brackets `[I will be modified by our font macro].`]
+
+The syntax is (font:&#39;Consolas&#39;)[`(font: &#39;Font Name&#39;)[text that will adopt font]`].
+
+There&#39;s a few built in fonts that we can choose from for example if we specify (font:&#39;Consolas&#39;)[`(font: &#39;Courier New&#39;)[Text using the font Courier New]`] we get the result:    (font: &#39;Courier New&#39;)[Text using the font Courier New]
+
+Or we could specify (font:&#39;Consolas&#39;)[`(font: &#39;Helvetica&#39;)[Helvetica is another font option]`] to get the output:    (font: &#39;Helvetica&#39;)[Helvetica is another font option]
+
+But what if we want to specify a (link-repeat: &quot;Custom Font&quot;)
+[
+(set: $previousPage to &quot;Back&quot;)
+(set: $nextPage to &quot;Custom Font&quot;)
+(goto: &quot;Google Fonts&quot;)
+]?
+
+</tw-passagedata><tw-passagedata pid="9" name="Google Fonts" tags="" position="700,1100" size="100,100">&lt;script&gt;
+$nextPage = &quot;Github Repositories&quot;;
+$previousPage = &quot;Back&quot;;
+&lt;/script&gt;
+
+&lt;h2&gt;Google Fonts&lt;/h2&gt;
+(link-repeat: &quot;Back&quot;)
+[
+(set: $previousPage to &quot;Back&quot;)
+(set: $nextPage to &quot;Google Fonts&quot;)
+(goto: &quot;The Font Macro&quot;)
+]
+
+To use a custom font we must include it in our stories stylesheet.
+You can find this in the (text-style: &quot;Bold&quot;)[&#39;Story&#39;] tab of the Twine user interface.
+Clicking on the (text-style: &quot;Bold&quot;)[#Stylesheet&#39;] button will open a (link-replace: &quot;CSS&quot;)[CSS - cascading style sheet: (describes how elements should appear on a webpage)] editor which we can use to add custom fonts.
+
+We can use &lt;a href=&quot;https://fonts.google.com&quot;&gt;Google Fonts&lt;/a&gt; to choose a custom font and import it for use in our story.
+
+We need to &#39;import&#39; the font in our file sheet:
+(font: &#39;Consolas&#39;)[@import url(&#39;https://fonts.googleapis.com/css2?family=Francois+One&#39;)] 
+
+And we can then use it in our text (font: &#39;Consolas&#39;)[`(font: &#39;Francois One&#39;)[Custom Font]` ]    (font: &#39;Francois One&#39;)[Custom Font]
+
+We&#39;re also able to utilise fully custom fonts using our (link-repeat: &quot;Github Repositories&quot;)
+[
+(set: $previousPage to &quot;Back&quot;)
+(set: $nextPage to &quot;Github Repositories&quot;)
+(goto: &quot;Custom Font&quot;)
+].</tw-passagedata><tw-passagedata pid="10" name="Custom Font" tags="" position="700,1225" size="100,100">&lt;script&gt;
+$nextPage = &quot;Text Colour&quot;;
+$previousPage = &quot;Back&quot;;
+&lt;/script&gt;
+
+&lt;h2&gt;Custom Font&lt;/h2&gt;
+(link-repeat: &quot;Back&quot;)
+[
+(set: $previousPage to &quot;Back&quot;)
+(set: $nextPage to &quot;Github Repositories&quot;)
+(goto: &quot;Google Fonts&quot;)
+]
+
+We can create or download a custom font &lt;a href=&quot;https://www.dafont.com/&quot;&gt;Dafont&lt;/a&gt;, and then upload it to our github repository in a directory called (text-style: &quot;bold&quot;)[fonts].
+
+We then also need to create a CSS file that tells Twine how to display our font, and upload this in the same directory as our font.
+(font: &#39;Consolas&#39;)[`
+@font-face {
+    font-family: &#39;Old London&#39;;
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://elliottrodel.github.io/Twine/fonts/OldLondon.ttf) format(&#39;truetype&#39;);
+}`]
+
+We can then use the (text-style: &quot;bold&quot;)+(font: &#39;Consolas&#39;)[@import url(&#39;yourRepository/fonts/fontName.css)] command in our stylesheet, and utilise the font in our story.
+
+(font: &#39;Consolas&#39;)[`(font: &#39;Old London&#39;)[Custom font imported from our repository].`]
+(font: &#39;Old London&#39;)[Custom font imported from our repository].
+
+</tw-passagedata><tw-passagedata pid="11" name="hal.tracks" tags="" position="275,200" size="100,100">background: https://elliottrodel.github.io/Twine/audio/inspiring-cinematic-ambient-116199.mp3</tw-passagedata><tw-passagedata pid="12" name="Problems with Images" tags="" position="500,950" size="100,100">&lt;h2&gt;Problems with Images&lt;/h2&gt;
+[[Images&lt;-Back]]
+
+Below is an image added using the (font: &#39;Consolas&#39;)[`&lt;img&gt;`] tag.
+
+The image is too large for the screen and is not displaying correctly. (scroll down)
+
+&lt;img src=&quot;https://www.pixelstalk.net/wp-content/uploads/2016/08/Nature-wallpapers-Full-HD-backgroud.jpg&quot;&gt;
+
+To solve this problem we must make use of [[Inline Styling]].</tw-passagedata><tw-passagedata pid="13" name="Inline Styling" tags="" position="500,1075" size="100,100">&lt;h2&gt;Inline Styling&lt;/h2&gt;
+[[Problems with Images&lt;-Back]]
+
+Inline styling allows us to utilise CSS tags within a HTML element to instruct the browser on how to draw our image.
+
+To do this we use the syntax (font: &#39;Consolas&#39;)[`style=&quot;&quot;`] before the closing bracket (font: &#39;Consolas&#39;)[`&gt;`] of the (font: &#39;Consolas&#39;)[`&lt;img&gt;`] tag.
+
+Inside the quotation marks we can set CSS properties on HTML elements. In our case in order to get our image rendering to the appropriate scale we&#39;re interested in the (font: &#39;Consolas&#39;)[max-width] property.
+
+Properties follow the format (font: &#39;Consolas&#39;)[property-name:value;], it is important to include the colon to seperate for the browser where the property name ends and the value we wish to assign begins. We must also add the terminating semicolon to allow us to specify multiple CSS properties.
+
+In our case we also want to set the (font: &#39;Consolas&#39;)[`height`] property. We&#39;re going to use the (font: &#39;Consolas&#39;)[auto] keyword as this tells the browser to automatically calculate the height using the width to preserve the aspect ratio of our image.
+
+Our full syntax is now (font: &#39;Consolas&#39;)[`&lt;img src=&quot;myImageUrl.png&quot; style=&quot;max-width:100%; height:auto;&quot;&gt;`]
+
+&lt;img src=&quot;https://www.pixelstalk.net/wp-content/uploads/2016/08/Nature-wallpapers-Full-HD-backgroud.jpg&quot; style=&quot;max-width:100%; height:auto;&quot;&gt;
+
+You can look up utilise additional &lt;a href=&quot;https://www.w3schools.com/Css/&quot;&gt;CSS&lt;/a&gt; styling properties to achieve a variety of interesting layout and formatting options.
+
+We use a smiliar syntax to add [[Video]] to our story.</tw-passagedata><tw-passagedata pid="14" name="Installing HAL" tags="" position="625,450" size="100,100">&lt;h2&gt;Installing HAL&lt;/h2&gt;
+[[Audio&lt;-Back]]
+
+To install HAL head to &lt;a href=&quot;https://github.com/ChapelR/harlowe-audio/releases&quot;&gt;https://github.com/ChapelR/harlowe-audio/releases&lt;/a&gt;
+
+You&#39;ll want to open the file called &#39;harlowe-audio.min.js&#39; in a text editor, and copy and paste its contents into the &#39;&#39;`{ }` Javascript&#39;&#39; editor in the &#39;&#39;Story&#39;&#39; tab.
+
+Alternatively head to &lt;a href=&quot;https://elliottrodel.github.io/Twine/scripts/harlowe-audio.min.js&quot;&gt;https://elliottrodel.github.io/Twine/scripts/harlowe-audio.min.js&lt;/a&gt; to view the contents of this file in your browser, and copy and paste it (without having to download and open the file).
+
+HAL comes with some CSS code to be added to the stylesheet, however I recommend you do not add this, and instead specify the following rule in your stylesheet:
+
+(font: &#39;Consolas&#39;)[`#audio-controls
+{
+  display: none;
+}`]
+
+This is because your reader can control the volume of the audio from their device, and we want to make the reading experience as smooth as possible for our end user.
+
+Now that we&#39;ve got HAL installed, we need to [[Define Tracks]].</tw-passagedata><tw-passagedata pid="15" name="Define Tracks" tags="" position="625,325" size="100,100">&lt;h2&gt;Defining Tracks in HAL&lt;/h2&gt;
+[[Installing HAL&lt;-Back]]
+
+In order to define our audio tracks we must create a special passage called (font: &#39;Consolas&#39;)[hal.tracks], the javascript code we added previously will detect the contents of this passage and allow us to use a new macro to interact with our audio.
+
+Inside this file we define each of our audio tracks with the following syntax:
+(font: &#39;Consolas&#39;)[trackname: trackURL.mp3]
+&#39;trackname&#39; should be replaced with a meaningful track identifier that you&#39;ll use in subsequent macros to interact with this piece of audio. The track URL should be to an mp3 file that you have uploaded to your git repository.
+
+Each entry in (font: &#39;Consolas&#39;)[hal.tracks] should be seperated by a new line.
+
+Once we&#39;ve defined our tracks we can then interact with them using the [[Track Macro]]. (this page plays audio).
+</tw-passagedata><tw-passagedata pid="16" name="Track Macro" tags="" position="625,200" size="100,100">&lt;h2&gt;Track Macro&lt;/h2&gt;
+[[Define Tracks&lt;-Back]]
+
+We can utilise the track macro to control audio tracks we&#39;ve specified in (font: &#39;Consolas&#39;)[hal.tracks].
+
+The syntax of the track macro is:
+(font: &#39;Consolas&#39;)[`(track: &#39;trackName&#39;, &#39;command&#39;)`]
+
+We can tell our audio track to &#39;play&#39; or &#39;pause&#39; these are our commands.
+For background audio we can also specify that we&#39;d like our track to loop using the syntax:
+(font: &#39;Consolas&#39;)[`(track: &#39;trackName&#39;, &#39;loop&#39;, true)`]
+
+You can view more information about HAL at &lt;a href=&quot;https://twinelab.net/harlowe-audio/#/?id=examples&quot;&gt;https://twinelab.net/harlowe-audio/#/?id=examples&lt;/a&gt;
+
+(track: &#39;background&#39;, &#39;loop&#39;, true)
+(track: &#39;background&#39;, &#39;play&#39;)</tw-passagedata></tw-storydata>
+
+<tw-storydata name="Test Story" startnode="1" creator="Twine" creator-version="2.5.1" format="Harlowe" format-version="3.3.3" ifid="1F725676-F85C-4A5F-AF7A-85DF5A15E3F0" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-icon[alt="Undo"], tw-icon[alt="Redo"] {
+    display: none;
+}</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-tag name="Blorgus" color="orange"></tw-tag><tw-tag name="footerr" color="purple"></tw-tag><tw-tag name="footer" color="purple"></tw-tag><tw-passagedata pid="1" name="My Name Jeff" tags="" position="700,300" size="100,100">(align: &quot;======&gt;&lt;=&quot;)[Hmm? Anything the matter?]
+
+[[Test&lt;-Testpls]]
+
+Princes make good men.
+
+(link:&quot;Reveal&quot;)[(t8n:&quot;dissolve&quot;)+(t8n-time:2s)+(replace:&quot;Prince&quot;)[Frog]]
+
+(display: &quot;Seperate Passage&quot;)
+
+(set: $next to &quot;Seperate Passage&quot;)
+
+(link-goto: &quot;Next&quot;, $next)
+
+&lt;!--(dm: &quot;Susan&quot;, &quot;A petite human in a yellow dress&quot;)--&gt;
+
+&lt;!--(go-to: (either: &quot;Win&quot;, &quot;Lose&quot;, &quot;Draw&quot;))--&gt;
+
+(link-replace: &quot;secret&quot;)[longing for you]
+
+(link-reveal: &quot;Heart&quot;)[broken]
+
+(link: &quot;Stake&quot;)[The dracula crumbles to dust.]
+
+(link-repeat: &quot;Scream a little &quot;)[A]
+
+(link-rerun: &quot;ROLL DICE &quot;)[You rolled a (random:1,6).]
+
+&lt;!--(link-goto: &quot;Enter the cellar&quot;, &quot;Storylet&quot;)--&gt;
+
+&lt;!--(cycling-link: bind $head&#39;s hair, &quot;Black&quot;, &quot;Brown&quot;, &quot;Blonde&quot;, &quot;Red&quot;, &quot;White&quot;)--&gt;
+
+(seq-link: &quot;We nodded,&quot;, &quot;turned,&quot;, &quot;and departed, not a word spoken&quot;)
+
+(link-reveal-goto: &quot;Study English&quot;, &quot;Test&quot;)[(set:$eng to it + 1)]
+
+But those little quirks paled before (link-show: &quot;her darker eccentricities.&quot;, ?twist)
+
+(force-input: bind _cmd, &quot;ERASE INTERNET&quot;)
+
+Ah. You remember her eldest well - [a frail, anxious child]&lt;extra|. Unlikely to raise too much of a fuss.
+
+(click-append: ?extra)[, constantly frowning, mumbling every word they utter, flinching at the slightest noise]
+</tw-passagedata><tw-passagedata pid="2" name="Test" tags="" position="825,300" size="100,100">Testing
+
+(nth: visit, &quot;Hi!&quot;, &quot;Hello again!&quot;, &quot;Oh, it&#39;s you!&quot;, &quot;Hey!&quot;)
+
+(link-undo:&quot;Retreat&quot;, &quot;Can&#39;t retreat!&quot;)
+
+(link-fullscreen: &quot;Turn fullscreen on&quot;, &quot;Turn fullscreen off&quot;, &quot;Fullscreen unavailable&quot;)</tw-passagedata><tw-passagedata pid="3" name="Seperate Passage" tags="" position="725,425" size="100,100">(set: $noOfVisits = $noOfVisits + 1)
+
+(print: (count: (history:), &quot;Seperate Passage&quot;))
+
+(print: $noOfVisits)
+
+(nth: visit, &quot;Hi!&quot;, &quot;Hello again!&quot;, &quot;Oh, it&#39;s you!&quot;, &quot;Hey!&quot;)
+
+(if: visits is 1)[This is the first time you&#39;ve been here.]
+
+(link-undo: &quot;Retreat&quot;, &quot;Unable to Retreat&quot;)
+
+Seperate Passage body text</tw-passagedata><tw-passagedata pid="4" name="footer" tags="footer" position="575,425" size="100,100">I should be on every page!</tw-passagedata></tw-storydata>
+
+<tw-storydata name="Harlowe storylets" startnode="1" creator="Twine" creator-version="2.5.1" format="Harlowe" format-version="3.3.3" ifid="971CCA89-0EC8-468C-8FB1-FDD82868B364" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="Hub" tags="" position="400,450" size="100,100">$pompous (link: &quot;++&quot;)[(set: $pompous to it + 1)(goto: &quot;Hub&quot;)] (link: &quot;--&quot;)[(set: $pompous to it - 1)(goto: &quot;Hub&quot;)]
+(for: each _p, ...(open-storylets:))[(link-goto: _p&#39;s name) - ]</tw-passagedata><tw-passagedata pid="2" name="pompous" tags="" position="550,600" size="100,100">(storylet: when $pompous &gt;= 3)
+very pompous</tw-passagedata><tw-passagedata pid="3" name="somewhat pompous" tags="" position="400,600" size="100,100">(storylet: when $pompous &gt;= 1 and $pompous &lt; 4)
+somewhat pompous</tw-passagedata><tw-passagedata pid="4" name="humble" tags="" position="250,600" size="100,100">(storylet: when $pompous &lt;= 1)
+humble</tw-passagedata><tw-passagedata pid="5" name="startup" tags="startup" position="275,450" size="100,100">(set: $pompous to 0)</tw-passagedata></tw-storydata>
+
